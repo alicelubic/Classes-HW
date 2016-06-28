@@ -5,7 +5,7 @@ import java.util.*;
  */
 public class User {
     String mName;
-    HashMap mPlaylists;
+    HashMap<String, Playlist> mPlaylists;
 
     public void user(String name,HashMap playlists){
         mName = name;
@@ -17,8 +17,8 @@ public class User {
     }
     public List<String> getAllPlaylistNames(){
         List<String> playlistNames = new ArrayList<>();
-        for (String key: mPlaylists.keySet()){ //it is telling me that I need an object and not a String to work this for loop
-                                                //but I don't understand how to do that, or why the object String isn't satisfying that requirement
+        for (String key: mPlaylists.keySet()){
+
             playlistNames.add(key);
         }
         return playlistNames;
@@ -28,7 +28,7 @@ public class User {
     public Playlist getPlaylistByName(String name){
 
         if(mPlaylists.containsKey(name)){
-            return mPlaylists.get(name); //same problem with it needing an object here
+            return mPlaylists.get(name);
         }
         else{
             return null;
